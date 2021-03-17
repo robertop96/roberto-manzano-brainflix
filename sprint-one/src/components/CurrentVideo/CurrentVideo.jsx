@@ -1,35 +1,54 @@
 import './CurrentVideo.scss';
+import { Component } from 'react';
+import Video from '../Video/Video';
 import VideoInfo from '../VideoInfo/VideoInfo';
 import Form from '../Form/Form';
 import Comments from '../Comments/Comments';
-import moment from 'moment';
-import Video from '../Video/Video';
+import NextVideo from '../NextVideo/NextVideo';
 import videoDetails from '../../data/video-details.json';
+import VideoList from '../../data/videos.json';
+import moment from 'moment';
 
-console.log(videoDetails[0].comments);
+export default class CurrentVideo extends Component {
+  state = {
+    videos: videoDetails,
+    defaultVideo: 0,
+    sideVideos: VideoList,
+  };
 
-function CurrentVideo() {
-  let commentsArray = videoDetails[0].comments;
+  handleNextVideo = () => {
+    this.setState({
+      defaultVideo: this.state.defaultVideo + 1,
+    });
+  };
 
-  return (
-    <section className="currentVideo">
-      <Video image={videoDetails[0].image} />
-      <VideoInfo
-        title={videoDetails[0].title}
-        channel={videoDetails[0].channel}
-        timestamp={videoDetails[0].timestamp}
-        views={videoDetails[0].views}
-        likes={videoDetails[0].likes}
-        description={videoDetails[0].description}
-      />
-      <Form comments={videoDetails[0].comments} />
-      {commentsArray.map((comment) => {
-        comment.image = 'https://loremflickr.com/48/48';
-        comment.date = moment.unix(comment.timestamp / 1000).fromNow();
-        return <Comments image={comment.image} name={comment.name} date={comment.date} comment={comment.comment} />;
-      })}
-    </section>
-  );
+  render() {
+    const { videos, defaultVideo, sideVideos } = this.state;
+    return (
+      <section className="currentVideo">
+        <Video image={videos[defaultVideo].image} />
+        <button onClick={this.handleNextVideo}>Click Me</button>
+        <VideoInfo
+          title={videos[defaultVideo].title}
+          channel={videos[defaultVideo].channel}
+          timestamp={videos[defaultVideo].timestamp}
+          views={videos[defaultVideo].views}
+          likes={videos[defaultVideo].likes}
+          description={videos[defaultVideo].description}
+        />
+        <Form comments={videos[defaultVideo].comments} />
+        {videos[defaultVideo].comments.map((comment, index) => {
+          comment.image = 'https://loremflickr.com/48/48';
+          comment.date = moment.unix(comment.timestamp / 1000).fromNow();
+          return <Comments key={index} image={comment.image} name={comment.name} date={comment.date} comment={comment.comment} />;
+        })}
+        <section>
+          <h3>Next Video</h3>
+          {sideVideos.map((video, index) => {
+            return <NextVideo key={index} image={video.image} title={video.title} channel={video.channel} />;
+          })}
+        </section>
+      </section>
+    );
+  }
 }
-
-export default CurrentVideo;

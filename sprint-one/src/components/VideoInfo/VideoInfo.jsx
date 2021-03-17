@@ -12,9 +12,9 @@ function VideoInfo({ title, channel, timestamp, views, likes, description }) {
         <p className="video-info__left--paragraph">{moment(timestamp).format('L')}</p>
       </article>
       <article className="video-info__right">
-        <img className="video-info__right--viewsIcon" src={viewsIcon} />
+        <img className="video-info__right--viewsIcon" src={viewsIcon} alt="" />
         <p className="video-info__right--views">{views}</p>
-        <img className="video-info__right--likesIcon" src={likesIcon} />
+        <img className="video-info__right--likesIcon" src={likesIcon} alt="" />
         <p className="video-info__right--likes">{likes}</p>
       </article>
       <hr />

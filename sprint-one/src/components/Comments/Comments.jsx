@@ -5,7 +5,7 @@ function Comments({ image, name, comment, date }) {
     <section className="conversation-container-posted">
       <article className="comment-container">
         <figure className="comment-container__picture">
-          <img className="comment-container__picture-img" src={image} alt="profile picture" />
+          <img className="comment-container__picture-img" src={image} alt="profile" />
         </figure>
         <div className="comment-body">
           <h3 className="comment-body__name">{name}</h3>

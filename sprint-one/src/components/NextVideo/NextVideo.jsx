@@ -1,6 +1,6 @@
 import './NextVideo.scss';
 
-function NextVideo({ image, title, channel }) {
+function NextVideo({ image, title, channel, index, foo }) {
   return (
     <section className="next-video">
       <figure className="next-video__figure">

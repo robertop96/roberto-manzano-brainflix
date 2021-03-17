@@ -1,4 +1,3 @@
-import Comments from '../Comments/Comments';
 import './Form.scss';
 
 function Form({ comments }) {
@@ -7,10 +6,10 @@ function Form({ comments }) {
       <h1 className="conversation-container__title">{comments.length}</h1>
       <form className="conversation-form">
         <figure className="conversation-form__picture">
-          <img className="conversation-form__picture--img" src="http://placeimg.com/48/48/any" alt="profile image" />
+          <img className="conversation-form__picture--img" src="http://placeimg.com/48/48/any" alt="" />
         </figure>
         <div className="conversation-form__form-container">
-          <label className="conversation-form__label-textarea" for="comment">
+          <label className="conversation-form__label-textarea" htmlFor="comment">
             JOIN THE CONVERSATION
           </label>
           <textarea
