@@ -1,0 +1,16 @@
+@import '../../partials/_partials.scss';
+@include font-list;
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  &__logo {
+    &--img {
+    }
+  }
+  &__search {
+  }
+  &__button {
+  }
+}

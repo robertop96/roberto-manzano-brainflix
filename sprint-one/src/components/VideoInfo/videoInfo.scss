@@ -1,0 +1,43 @@
+@import '../../partials/_partials.scss';
+@include font-list;
+
+.video-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  &__title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  &__left {
+    display: flex;
+    margin-bottom: 1rem;
+    &--channel {
+      margin-right: 0.5rem;
+    }
+    &--views {
+    }
+    &--likes {
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: baseline;
+    &--viewsIcon {
+      margin-right: 0.5rem;
+    }
+    &--likesIcon {
+      margin-right: 0.5rem;
+    }
+    &--paragraph {
+      margin-right: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+  &__description {
+    margin-top: 1rem;
+  }
+}

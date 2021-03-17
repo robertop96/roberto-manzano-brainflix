@@ -1,0 +1,26 @@
+@import '../../partials/partials';
+
+.next-video {
+  display: flex;
+  margin-top: 40px;
+  &__figure {
+    margin-bottom: 24px;
+    margin-right: 1rem;
+    margin-left: 16px;
+    &--img {
+      width: 120px;
+      height: 70px;
+    }
+  }
+  &__info {
+    &--title {
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+      // color: red;
+    }
+    &--channel {
+      margin-top: 0.5rem;
+      // background-color: black;
+    }
+  }
+}

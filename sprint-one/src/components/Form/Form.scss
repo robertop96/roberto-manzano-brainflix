@@ -1,0 +1,98 @@
+@import '../../partials/partials';
+@include font-list;
+
+.conversation-container {
+  @include flex-column;
+  @include side-margin;
+  &__title {
+    margin-top: 2rem;
+    @include h1-header;
+    text-align: left;
+    @include desktop {
+      margin-top: 3rem;
+    }
+  }
+}
+.conversation-form {
+  @include flex-row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+  @include desktop {
+  }
+  &__divider--top {
+    @include tablet {
+      display: block;
+      width: 32.75rem;
+      margin: 0 auto 0 auto;
+      border-top: 1px solid $divider;
+    }
+  }
+  &__picture {
+    @include Profile-picture;
+  }
+  &__form-container {
+    @include flex-column;
+    width: 14rem;
+    @include tablet {
+      width: 28.75rem;
+    }
+  }
+  &__name-label {
+    @include h5-labels;
+    color: $text-label;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    @include desktop {
+      margin-top: 3.625rem;
+    }
+  }
+  &__name {
+    height: 3rem;
+    padding: 0.5rem;
+    background-color: $text-field-background;
+    border: 1px solid black;
+    border-radius: 0.313rem;
+    &::placeholder {
+      @include h5-labels;
+      padding-left: 0.938rem;
+    }
+  }
+  &__label-textarea {
+    @include h5-labels;
+    color: $text-label;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    @include desktop {
+      margin-top: 1.5rem;
+    }
+  }
+  &__textarea {
+    padding: 0.5rem;
+    height: 6rem;
+    background-color: $text-field-background;
+    border-radius: 0.313rem;
+    &::placeholder {
+      @include h5-labels;
+      padding-top: 0.938rem;
+      padding-left: 0.938rem;
+    }
+  }
+  &__button {
+    @include button;
+    width: 14rem;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    &:hover {
+      background-color: black;
+    }
+    @include tablet {
+      margin-top: 1.5rem;
+      width: 10rem;
+      align-self: flex-end;
+    }
+  }
+}

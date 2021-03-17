@@ -1,0 +1,59 @@
+@import '../../partials/partials';
+@include font-list;
+
+.conversation-container-posted {
+  @include flex-column;
+  align-items: center;
+  @include tablet {
+    width: auto;
+  }
+}
+.comment-container {
+  @include flex-row;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  &__picture {
+    @include Profile-picture;
+  }
+  &__divider {
+    // display: none;
+    width: 100%;
+    @include tablet {
+      // display: block;
+      // width: 32.75rem;
+      // margin: 0 auto 0 auto;
+      // border-top: 1px solid $divider;
+    }
+  }
+}
+.comment-body {
+  @include flex-row;
+  width: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 14rem;
+  @include tablet {
+    width: 28.75rem;
+    justify-content: flex-start;
+  }
+  &__name {
+    @include h5-labels;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    @include tablet {
+      margin-right: 1rem;
+    }
+  }
+  &__date {
+    @include h4-paragraph;
+    color: $text-label;
+  }
+  &__comment {
+    @include h4-paragraph;
+    @include h5-labels;
+    flex: 100%;
+    width: 1.5rem;
+    margin-bottom: 1.5rem;
+    word-wrap: break-word;
+  }
+}
