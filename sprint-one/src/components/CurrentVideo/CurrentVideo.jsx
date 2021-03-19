@@ -5,39 +5,57 @@ import VideoInfo from '../VideoInfo/VideoInfo';
 import Form from '../Form/Form';
 import Comments from '../Comments/Comments';
 import NextVideo from '../NextVideo/NextVideo';
-import videoDetails from '../../data/video-details.json';
+import VideoDetails from '../../data/video-details.json';
 import VideoList from '../../data/videos.json';
 import moment from 'moment';
 
 export default class CurrentVideo extends Component {
   state = {
-    videos: videoDetails,
-    defaultVideo: 0,
+    videos: VideoDetails[0],
     sideVideos: VideoList,
   };
 
-  handleNextVideo = () => {
+  handleNextVideo = (event) => {
+    let id = event.target.id;
+    let selectedVideo = VideoDetails.find((video) => video.id === id);
+    let newSideVideo = VideoList.filter((video) => !(video.id === id));
+    // console.log(newSideVideo);
+    // console.log(selectedVideo);
     this.setState({
-      defaultVideo: this.state.defaultVideo + 1,
+      videos: selectedVideo,
+      sideVideos: newSideVideo,
     });
   };
 
+  // handleNextVideo = (event) => {
+  //   console.log(event.target);
+  //   this.setState({
+  //     defaultVideo: this.state.defaultVideo + 1,
+  //   });
+  // };
+
+  // updateSelectedVideo = () => {
+  //   let selectedVideo = this.state.videos.find((video) => video.id === id);
+  //   this.setState({
+  //     selectedVideo: selectedVideo,
+  //   });
+  // };
+
   render() {
-    const { videos, defaultVideo, sideVideos } = this.state;
+    const { videos, sideVideos } = this.state;
     return (
       <section className="currentVideo">
-        <Video image={videos[defaultVideo].image} />
-        <button onClick={this.handleNextVideo}>Click Me</button>
+        <Video image={videos.image} />
         <VideoInfo
-          title={videos[defaultVideo].title}
-          channel={videos[defaultVideo].channel}
-          timestamp={videos[defaultVideo].timestamp}
-          views={videos[defaultVideo].views}
-          likes={videos[defaultVideo].likes}
-          description={videos[defaultVideo].description}
+          title={videos.title}
+          channel={videos.channel}
+          timestamp={videos.timestamp}
+          views={videos.views}
+          likes={videos.likes}
+          description={videos.description}
         />
-        <Form comments={videos[defaultVideo].comments} />
-        {videos[defaultVideo].comments.map((comment, index) => {
+        <Form />
+        {videos.comments.map((comment, index) => {
           comment.image = 'https://loremflickr.com/48/48';
           comment.date = moment.unix(comment.timestamp / 1000).fromNow();
           return <Comments key={index} image={comment.image} name={comment.name} date={comment.date} comment={comment.comment} />;
@@ -45,7 +63,16 @@ export default class CurrentVideo extends Component {
         <section>
           <h3>Next Video</h3>
           {sideVideos.map((video, index) => {
-            return <NextVideo key={index} image={video.image} title={video.title} channel={video.channel} />;
+            return (
+              <NextVideo
+                handleNextVideo={this.handleNextVideo}
+                key={video.id}
+                id={video.id}
+                image={video.image}
+                title={video.title}
+                channel={video.channel}
+              />
+            );
           })}
         </section>
       </section>

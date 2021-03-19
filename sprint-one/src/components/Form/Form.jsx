@@ -3,7 +3,7 @@ import './Form.scss';
 function Form({ comments }) {
   return (
     <section className="conversation-container">
-      <h1 className="conversation-container__title">{comments.length}</h1>
+      <h1 className="conversation-container__title"></h1>
       <form className="conversation-form">
         <figure className="conversation-form__picture">
           <img className="conversation-form__picture--img" src="http://placeimg.com/48/48/any" alt="" />

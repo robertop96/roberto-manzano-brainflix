@@ -1,8 +1,8 @@
 import './NextVideo.scss';
 
-function NextVideo({ image, title, channel, index, foo }) {
+function NextVideo({ image, title, channel, handleNextVideo, id }) {
   return (
-    <section className="next-video">
+    <section id={id} className="next-video" onClick={handleNextVideo}>
       <figure className="next-video__figure">
         <img className="next-video__figure--img" src={image} alt="Video Thumbnail" />
       </figure>
