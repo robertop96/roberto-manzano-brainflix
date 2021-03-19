@@ -19,8 +19,6 @@ export default class CurrentVideo extends Component {
     let id = event.target.id;
     let selectedVideo = VideoDetails.find((video) => video.id === id);
     let newSideVideo = VideoList.filter((video) => !(video.id === id));
-    // console.log(newSideVideo);
-    // console.log(selectedVideo);
     this.setState({
       videos: selectedVideo,
       sideVideos: newSideVideo,

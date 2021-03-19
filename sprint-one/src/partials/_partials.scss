@@ -62,6 +62,12 @@ $desktop: 1440px;
   border: none;
   border-radius: 0.25rem;
 }
+@mixin button-brainflix {
+  color: white;
+  background-color: $brain-primary-cta;
+  border: none;
+  border-radius: 0.25rem;
+}
 @mixin Profile-picture {
   display: flex;
   width: 48px;
@@ -69,7 +75,6 @@ $desktop: 1440px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 16px;
-  margin-top: 40px;
   @include desktop {
     margin-top: 58px;
   }
