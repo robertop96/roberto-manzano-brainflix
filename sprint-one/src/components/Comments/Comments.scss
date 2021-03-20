@@ -5,25 +5,23 @@
   @include flex-column;
   align-items: center;
   @include tablet {
+    flex-direction: row;
     width: auto;
+    @include side-margin;
   }
 }
 .comment-container {
   @include flex-row;
-  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 1.5rem;
+  width: 90%;
+  border-bottom: 1px solid $divider;
+  @include tablet {
+    width: 624px;
+    border-bottom: 1px solid $divider;
+  }
   &__picture {
     @include Profile-picture;
-  }
-  &__divider {
-    // display: none;
-    width: 100%;
-    @include tablet {
-      // display: block;
-      // width: 32.75rem;
-      // margin: 0 auto 0 auto;
-      // border-top: 1px solid $divider;
-    }
   }
 }
 .comment-body {
@@ -33,7 +31,7 @@
   justify-content: space-between;
   width: 14rem;
   @include tablet {
-    width: 28.75rem;
+    width: 624px;
     justify-content: flex-start;
   }
   &__name {

@@ -67,6 +67,9 @@ $desktop: 1440px;
   background-color: $brain-primary-cta;
   border: none;
   border-radius: 0.25rem;
+  &:hover {
+    background-color: $brain-primary-cta-hover;
+  }
 }
 @mixin Profile-picture {
   display: flex;
@@ -82,6 +85,11 @@ $desktop: 1440px;
     width: 100%;
     height: auto;
   }
+}
+@mixin input-focus {
+  outline: none;
+  border: 3px solid $brain-primary-cta;
+  box-shadow: none;
 }
 // FONT SIZES **********************************************************
 @mixin h1-hero {

@@ -2,42 +2,76 @@
 @include font-list;
 
 .video-info {
+  @include side-margin;
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
   &__title {
-    margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: left;
+    @include h2-header;
+    @include tablet {
+      margin-bottom: 1.5rem;
+      flex-basis: 100%;
+      font-size: 34px;
+    }
   }
   &__left {
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     &--channel {
+      @include h3-subheader;
+      font-weight: 600;
       margin-right: 0.5rem;
     }
-    &--views {
-    }
-    &--likes {
+    &--timestamp {
+      @include h3-subheader;
+      color: $text-label;
+      font-weight: 600;
     }
   }
   &__right {
     display: flex;
-    align-items: baseline;
+    margin-bottom: 1.5rem;
+    @include tablet {
+      margin-left: auto;
+      align-items: baseline;
+    }
     &--viewsIcon {
       margin-right: 0.5rem;
+    }
+    &--views {
+      margin-right: 1rem;
+      @include tablet {
+        margin-right: 1.5rem;
+      }
     }
     &--likesIcon {
       margin-right: 0.5rem;
     }
-    &--paragraph {
+    &--likes {
       margin-right: 0.5rem;
-      margin-bottom: 1rem;
+    }
+  }
+  &__divider {
+    margin-bottom: 1.5rem;
+    @include tablet {
+      flex-basis: 100%;
+      margin-bottom: 2.5rem;
     }
   }
   &__description {
-    margin-top: 1rem;
+    @include h4-paragraph;
+    margin-bottom: 2.5rem;
+    @include tablet {
+      width: 600px;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      margin-bottom: 4rem;
+    }
   }
 }

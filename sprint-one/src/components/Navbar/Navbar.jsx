@@ -11,9 +11,9 @@ function Navbar() {
           <img className="navbar__logo--img" src={logo} alt="logo" />
         </a>
       </figure>
-      <input className="navbar__search" type="text" placeholder=" - Search" />
+      <input className="navbar__search" type="text" placeholder="Search" />
       <div className="navbar__upload">
-        <button className="navbar__upload--button"> + UPLOAD</button>
+        <button className="navbar__upload--button">UPLOAD</button>
         <figure className="navbar__upload--figure">
           <img className="navbar__upload--img" src={profilePic} alt="" />
         </figure>

@@ -1,4 +1,4 @@
-import './CurrentVideo.scss';
+import './Body.scss';
 import { Component } from 'react';
 import Video from '../Video/Video';
 import VideoInfo from '../VideoInfo/VideoInfo';
@@ -9,7 +9,7 @@ import VideoDetails from '../../data/video-details.json';
 import VideoList from '../../data/videos.json';
 import moment from 'moment';
 
-export default class CurrentVideo extends Component {
+export default class Body extends Component {
   state = {
     videos: VideoDetails[0],
     sideVideos: VideoList,
@@ -25,20 +25,6 @@ export default class CurrentVideo extends Component {
     });
   };
 
-  // handleNextVideo = (event) => {
-  //   console.log(event.target);
-  //   this.setState({
-  //     defaultVideo: this.state.defaultVideo + 1,
-  //   });
-  // };
-
-  // updateSelectedVideo = () => {
-  //   let selectedVideo = this.state.videos.find((video) => video.id === id);
-  //   this.setState({
-  //     selectedVideo: selectedVideo,
-  //   });
-  // };
-
   render() {
     const { videos, sideVideos } = this.state;
     return (
@@ -52,14 +38,14 @@ export default class CurrentVideo extends Component {
           likes={videos.likes}
           description={videos.description}
         />
-        <Form />
+        <Form comments={videos.comments} />
         {videos.comments.map((comment, index) => {
           comment.image = 'https://loremflickr.com/48/48';
           comment.date = moment.unix(comment.timestamp / 1000).fromNow();
           return <Comments key={index} image={comment.image} name={comment.name} date={comment.date} comment={comment.comment} />;
         })}
-        <section>
-          <h3>Next Video</h3>
+        <section className="nextVideo">
+          <h3 className="nextVideo__title">Next Video</h3>
           {sideVideos.map((video, index) => {
             return (
               <NextVideo

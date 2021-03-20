@@ -2,25 +2,33 @@
 
 .next-video {
   display: flex;
-  margin-top: 40px;
+  flex-wrap: wrap;
+  @include side-margin;
   &__figure {
     margin-bottom: 24px;
     margin-right: 1rem;
-    margin-left: 16px;
+    overflow: hidden;
     &--img {
+      border-radius: 4px;
+      // object-fit: cover;
       width: 120px;
       height: 70px;
+      // max-width: 100%;
+      // max-height: 100%;
     }
   }
   &__info {
     &--title {
-      font-size: 16px;
+      font-size: 1rem;
+      font-weight: 600;
       margin-bottom: 0.5rem;
-      // color: red;
+      max-width: 152px;
+      @include tablet {
+        min-width: 200px;
+      }
     }
     &--channel {
       margin-top: 0.5rem;
-      // background-color: black;
     }
   }
 }

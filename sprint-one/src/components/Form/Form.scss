@@ -5,11 +5,12 @@
   @include flex-column;
   @include side-margin;
   &__title {
-    margin-top: 2rem;
     @include h1-header;
     text-align: left;
-    @include desktop {
-      margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    @include tablet {
+      @include h2-header;
     }
   }
 }
@@ -18,81 +19,71 @@
   flex-wrap: wrap;
   justify-content: center;
   width: auto;
-  @include desktop {
+  @include tablet {
+    justify-content: flex-start;
   }
+
   &__divider--top {
+    border-top: 1px solid $divider;
     @include tablet {
       display: block;
-      width: 32.75rem;
-      margin: 0 auto 0 auto;
+      width: 95%;
       border-top: 1px solid $divider;
     }
   }
   &__picture {
     @include Profile-picture;
+    margin-top: 3rem;
+    @include tablet {
+      margin-top: 1.5rem;
+    }
   }
   &__form-container {
     @include flex-column;
     width: 14rem;
     @include tablet {
+      flex-direction: row;
       width: 28.75rem;
     }
   }
-  &__name-label {
-    @include h5-labels;
-    color: $text-label;
-    font-weight: 600;
-    margin-top: 2.5rem;
-    margin-bottom: 0.5rem;
-    @include desktop {
-      margin-top: 3.625rem;
-    }
-  }
-  &__name {
-    height: 3rem;
-    padding: 0.5rem;
-    background-color: $text-field-background;
-    border: 1px solid black;
-    border-radius: 0.313rem;
-    &::placeholder {
-      @include h5-labels;
-      padding-left: 0.938rem;
-    }
-  }
   &__label-textarea {
-    @include h5-labels;
+    @include h3-subheader;
     color: $text-label;
-    font-weight: 600;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    @include desktop {
-      margin-top: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    @include tablet {
     }
   }
   &__textarea {
-    padding: 0.5rem;
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
     height: 6rem;
     background-color: $text-field-background;
     border-radius: 0.313rem;
+    margin-bottom: 1rem;
+    @include tablet {
+      padding-top: 1rem;
+      width: 440px;
+      height: 3rem;
+      margin-right: 1rem;
+    }
     &::placeholder {
       @include h5-labels;
-      padding-top: 0.938rem;
-      padding-left: 0.938rem;
+    }
+    &:focus {
+      @include input-focus;
     }
   }
   &__button {
-    @include button;
+    @include button-brainflix;
+    font-weight: 600;
     width: 14rem;
     height: 3rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    &:hover {
-      background-color: black;
-    }
+    margin-bottom: 1.5rem;
     @include tablet {
       margin-top: 1.5rem;
-      width: 10rem;
-      align-self: flex-end;
+      min-width: 10rem;
+      // align-self: flex-end;
     }
   }
 }

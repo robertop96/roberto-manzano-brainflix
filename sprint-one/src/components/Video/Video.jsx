@@ -7,5 +7,4 @@ function Video({ image }) {
     </figure>
   );
 }
-
 export default Video;

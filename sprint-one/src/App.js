@@ -1,7 +1,7 @@
 import './App.scss';
 import './partials/_partials.scss';
 import Navbar from './components/Navbar/Navbar';
-import CurrentVideo from './components/CurrentVideo/CurrentVideo';
+import Body from './components/Body/Body';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Navbar />
       </header>
       <main>
-        <CurrentVideo />
+        <Body />
       </main>
     </section>
   );

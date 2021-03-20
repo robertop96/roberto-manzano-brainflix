@@ -14,7 +14,6 @@ function Comments({ image, name, comment, date }) {
             <p>{comment}</p>
           </article>
         </div>
-        <hr className="comment-container__divider" />
       </article>
     </section>
   );
