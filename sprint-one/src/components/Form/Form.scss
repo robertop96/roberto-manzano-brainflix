@@ -1,9 +1,10 @@
 @import '../../partials/partials';
 @include font-list;
 
-.conversation-container {
+.container {
   @include flex-column;
-  @include side-margin;
+  @include tablet {
+  }
   &__title {
     @include h1-header;
     text-align: left;
@@ -13,77 +14,85 @@
       @include h2-header;
     }
   }
-}
-.conversation-form {
-  @include flex-row;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: auto;
-  @include tablet {
-    justify-content: flex-start;
-  }
-
-  &__divider--top {
-    border-top: 1px solid $divider;
+  .form {
+    @include flex-row;
+    flex-wrap: wrap;
+    justify-content: center;
+    // width: auto;
     @include tablet {
-      display: block;
-      width: 95%;
-      border-top: 1px solid $divider;
+      // align-items: baseline;
+      justify-content: flex-start;
     }
-  }
-  &__picture {
-    @include Profile-picture;
-    margin-top: 3rem;
-    @include tablet {
-      margin-top: 1.5rem;
+    &__figure {
+      @include Profile-picture;
+      margin-top: 3rem;
+      @include tablet {
+        margin-top: 2.5rem;
+      }
     }
-  }
-  &__form-container {
-    @include flex-column;
-    width: 14rem;
-    @include tablet {
-      flex-direction: row;
-      width: 28.75rem;
+    &__textarea {
+      @include flex-column;
+      width: 14rem;
+      @include tablet {
+        // flex-direction: row;
+        width: 28.75rem;
+      }
+      &--label {
+        @include h3-subheader;
+        color: $text-label;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        @include desktop {
+          font-size: 0.8rem;
+          margin-top: 1rem;
+          margin-bottom: 0rem;
+        }
+      }
+      &--textarea {
+        padding-top: 1.5rem;
+        padding-left: 1.5rem;
+        height: 6rem;
+        background-color: $text-field-background;
+        border-radius: 0.313rem;
+        margin-bottom: 1rem;
+        @include tablet {
+          padding-top: 1rem;
+          width: 440px;
+          height: 3rem;
+          margin-right: 1rem;
+        }
+        @include desktop {
+          width: 436px;
+        }
+        &::placeholder {
+          @include h5-labels;
+        }
+        &:focus {
+          @include input-focus;
+        }
+      }
     }
-  }
-  &__label-textarea {
-    @include h3-subheader;
-    color: $text-label;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    @include tablet {
-    }
-  }
-  &__textarea {
-    padding-top: 1.5rem;
-    padding-left: 1.5rem;
-    height: 6rem;
-    background-color: $text-field-background;
-    border-radius: 0.313rem;
-    margin-bottom: 1rem;
-    @include tablet {
-      padding-top: 1rem;
-      width: 440px;
+    &__button {
+      @include button-brainflix;
+      font-weight: 600;
+      width: 14rem;
       height: 3rem;
-      margin-right: 1rem;
-    }
-    &::placeholder {
-      @include h5-labels;
-    }
-    &:focus {
-      @include input-focus;
-    }
-  }
-  &__button {
-    @include button-brainflix;
-    font-weight: 600;
-    width: 14rem;
-    height: 3rem;
-    margin-bottom: 1.5rem;
-    @include tablet {
-      margin-top: 1.5rem;
-      min-width: 10rem;
-      // align-self: flex-end;
+      margin-bottom: 1.5rem;
+      @include tablet {
+        margin-top: 2.5rem;
+        min-width: 10rem;
+      }
+      @include desktop {
+        width: 10rem;
+      }
     }
   }
+  // &__divider--top {
+  //   border-top: 1px solid $divider;
+  //   @include tablet {
+  //     display: block;
+  //     width: 95%;
+  //     border-top: 1px solid $divider;
+  //   }
+  // }
 }

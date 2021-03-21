@@ -6,12 +6,8 @@ import Body from './components/Body/Body';
 function App() {
   return (
     <section>
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <Body />
-      </main>
+      <Navbar />
+      <Body />
     </section>
   );
 }

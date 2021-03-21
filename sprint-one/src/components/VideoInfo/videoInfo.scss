@@ -2,14 +2,12 @@
 @include font-list;
 
 .video-info {
-  @include side-margin;
   display: flex;
   flex-direction: column;
   @include tablet {
     flex-direction: row;
     flex-wrap: wrap;
   }
-
   &__title {
     margin-bottom: 1rem;
     text-align: left;
@@ -19,11 +17,15 @@
       flex-basis: 100%;
       font-size: 34px;
     }
+    @include desktop {
+      font-size: 40px;
+      margin-top: 2rem;
+    }
   }
-  &__left {
+  &__channel {
     display: flex;
     margin-bottom: 2rem;
-    &--channel {
+    &--name {
       @include h3-subheader;
       font-weight: 600;
       margin-right: 0.5rem;
@@ -34,7 +36,7 @@
       font-weight: 600;
     }
   }
-  &__right {
+  &__social-medial {
     display: flex;
     margin-bottom: 1.5rem;
     @include tablet {
@@ -43,18 +45,29 @@
     }
     &--viewsIcon {
       margin-right: 0.5rem;
+      @include desktop {
+        width: 2rem;
+      }
     }
     &--views {
       margin-right: 1rem;
       @include tablet {
         margin-right: 1.5rem;
+        font-size: 1.3rem;
       }
     }
     &--likesIcon {
       margin-right: 0.5rem;
+      @include desktop {
+        width: 1.5rem;
+      }
     }
     &--likes {
       margin-right: 0.5rem;
+      @include desktop {
+        margin-right: 2rem;
+        font-size: 1.3rem;
+      }
     }
   }
   &__divider {

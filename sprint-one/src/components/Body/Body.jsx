@@ -28,38 +28,50 @@ export default class Body extends Component {
   render() {
     const { videos, sideVideos } = this.state;
     return (
-      <section className="currentVideo">
-        <Video image={videos.image} />
-        <VideoInfo
-          title={videos.title}
-          channel={videos.channel}
-          timestamp={videos.timestamp}
-          views={videos.views}
-          likes={videos.likes}
-          description={videos.description}
-        />
-        <Form comments={videos.comments} />
-        {videos.comments.map((comment, index) => {
-          comment.image = 'https://loremflickr.com/48/48';
-          comment.date = moment.unix(comment.timestamp / 1000).fromNow();
-          return <Comments key={index} image={comment.image} name={comment.name} date={comment.date} comment={comment.comment} />;
-        })}
-        <section className="nextVideo">
-          <h3 className="nextVideo__title">Next Video</h3>
-          {sideVideos.map((video, index) => {
-            return (
-              <NextVideo
-                handleNextVideo={this.handleNextVideo}
-                key={video.id}
-                id={video.id}
-                image={video.image}
-                title={video.title}
-                channel={video.channel}
-              />
-            );
-          })}
+      <main>
+        <figure className="video">
+          <Video image={videos.image} />
+        </figure>
+        <section className="content">
+          <article className="content__video-information">
+            <VideoInfo
+              title={videos.title}
+              channel={videos.channel}
+              timestamp={videos.timestamp}
+              views={videos.views}
+              likes={videos.likes}
+              description={videos.description}
+            />
+            <Form comments={videos.comments} />
+            {videos.comments.map((comment, index) => {
+              return (
+                <Comments
+                  key={index}
+                  image={(comment.image = 'https://loremflickr.com/48/48')}
+                  name={comment.name}
+                  date={moment.unix(comment.timestamp / 1000).fromNow()}
+                  comment={comment.comment}
+                />
+              );
+            })}
+          </article>
+          <article className="content__next-video">
+            <h3 className="content__next-video--title">Next Video</h3>
+            {sideVideos.map((video, index) => {
+              return (
+                <NextVideo
+                  handleNextVideo={this.handleNextVideo}
+                  key={video.id}
+                  id={video.id}
+                  image={video.image}
+                  title={video.title}
+                  channel={video.channel}
+                />
+              );
+            })}
+          </article>
         </section>
-      </section>
+      </main>
     );
   }
 }

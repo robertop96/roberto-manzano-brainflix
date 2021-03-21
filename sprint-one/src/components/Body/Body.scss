@@ -1,19 +1,34 @@
 @import '../../partials/_partials.scss';
 @include font-list;
 
-.currentVideo {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
+.video {
+  background-color: black;
 }
-
-.nextVideo {
-  &__title {
-    @include h2-header;
-    font-weight: 600;
-    color: $text-label;
-    margin-top: 2.5rem;
-    margin-left: 1rem;
-    margin-bottom: 2.5rem;
+.content {
+  @include flex-column;
+  @include side-margin;
+  @include desktop {
+    flex-direction: row;
+  }
+  &__video-information {
+    @include side-margin;
+    @include desktop {
+      margin: 0;
+      width: 712px;
+      margin-right: 2rem;
+    }
+  }
+  &__next-video {
+    @include side-margin;
+    @include desktop {
+      margin: 0;
+    }
+    &--title {
+      color: $text-label;
+      @include desktop {
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+    }
   }
 }

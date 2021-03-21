@@ -4,20 +4,20 @@
   display: flex;
   flex-wrap: wrap;
   @include side-margin;
+  @include desktop {
+    margin: 0px;
+  }
   &__figure {
     margin-bottom: 24px;
     margin-right: 1rem;
     overflow: hidden;
     &--img {
       border-radius: 4px;
-      // object-fit: cover;
       width: 120px;
       height: 70px;
-      // max-width: 100%;
-      // max-height: 100%;
     }
   }
-  &__info {
+  &__description {
     &--title {
       font-size: 1rem;
       font-weight: 600;

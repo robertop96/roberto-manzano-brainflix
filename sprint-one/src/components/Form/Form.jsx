@@ -2,31 +2,28 @@ import './Form.scss';
 
 function Form({ comments }) {
   return (
-    <section className="conversation-container">
-      <h1 className="conversation-container__title">{comments.length} Comments</h1>
-      <form className="conversation-form">
-        <figure className="conversation-form__picture">
-          <img className="conversation-form__picture--img" src="http://placeimg.com/48/48/any" alt="" />
+    <section className="container">
+      <h1 className="container__title">{comments.length} Comments</h1>
+      <form className="form">
+        <figure className="form__figure">
+          <img className="form__figure--img" src="http://placeimg.com/48/48/any" alt="" />
         </figure>
-        <div className="conversation-form__form-container">
-          <div>
-            <label className="conversation-form__label-textarea" htmlFor="comment">
-              JOIN THE CONVERSATION
-            </label>
-            <textarea
-              className="conversation-form__textarea conversation__form--textarea-input"
-              name="comment"
-              id="comment"
-              cols="30"
-              rows="10"
-              placeholder="Add a new comment"
-              required
-            ></textarea>
-          </div>
-          <button className="conversation-form__button">COMMENT</button>
-        </div>
+        <article className="form__textarea">
+          <label className="form__textarea--label" htmlFor="comment">
+            JOIN THE CONVERSATION
+          </label>
+          <textarea
+            className="form__textarea--textarea"
+            name="comment"
+            id="comment"
+            cols="30"
+            rows="10"
+            placeholder="Add a new comment"
+            required
+          ></textarea>
+        </article>
+        <button className="form__button">COMMENT</button>
       </form>
-      <hr className="conversation-form__divider--top" />
     </section>
   );
 }

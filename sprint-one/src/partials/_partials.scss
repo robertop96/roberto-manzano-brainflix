@@ -78,9 +78,6 @@ $desktop: 1440px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 16px;
-  @include desktop {
-    margin-top: 58px;
-  }
   &--img {
     width: 100%;
     height: auto;

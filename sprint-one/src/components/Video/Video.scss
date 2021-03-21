@@ -1,7 +1,6 @@
 @import '../../partials/partials';
 
 .videoFigure {
-  background-color: black;
   margin-bottom: 2rem;
   @include tablet {
     margin-bottom: 2.5rem;
@@ -9,12 +8,18 @@
   &__video {
     width: 100%;
     height: 183px;
+    object-fit: cover;
     @include tablet {
       margin-left: 2rem;
       margin-right: 2rem;
       width: 700px;
       height: 400px;
-      object-fit: cover;
+    }
+    @include desktop {
+      width: 944px;
+      height: 540px;
+      margin-left: 248px;
+      margin-right: 248px;
     }
   }
 }
