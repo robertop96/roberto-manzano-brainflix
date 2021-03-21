@@ -7,11 +7,11 @@
   border-bottom: 1px solid $divider;
   margin-top: 1.5rem;
   @include tablet {
-    width: 720px;
+    width: 45rem;
     justify-content: flex-start;
   }
   @include desktop {
-    width: 712px;
+    width: 44.5rem;
     margin-top: 1rem;
   }
   &__figure {
@@ -24,7 +24,7 @@
     flex-wrap: wrap;
     width: 100%;
     @include tablet {
-      width: 624px;
+      width: 39rem;
       justify-content: flex-start;
     }
     &__name {
@@ -32,8 +32,7 @@
       font-weight: 600;
       margin-bottom: 1rem;
       @include tablet {
-        margin-right: 1rem;
-        margin-bottom: 0;
+        margin: 0 1rem 0 0;
       }
     }
     &__date {
@@ -41,12 +40,10 @@
       color: $text-label;
     }
     &__comment {
-      @include h4-paragraph;
-      @include h5-labels;
       flex: 100%;
       width: 1.5rem;
-      margin-bottom: 1.5rem;
       word-wrap: break-word;
+      margin-bottom: 1.5rem;
       @include desktop {
         margin-bottom: 0.5rem;
       }

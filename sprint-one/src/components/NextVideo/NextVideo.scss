@@ -2,28 +2,25 @@
 
 .next-video {
   display: flex;
-  flex-wrap: wrap;
-  @include desktop {
-    margin: 0px;
-  }
   &__figure {
-    margin-bottom: 24px;
-    margin-right: 1rem;
-    overflow: hidden;
+    margin: 0 1rem 1.5rem 0;
     &--img {
+      width: 7.5rem;
+      height: 4.375rem;
       border-radius: 4px;
-      width: 120px;
-      height: 70px;
     }
   }
   &__description {
     &--title {
-      font-size: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      max-width: 140px;
       @include tablet {
-        min-width: 200px;
+        min-width: 12.5rem;
       }
     }
     &--channel {

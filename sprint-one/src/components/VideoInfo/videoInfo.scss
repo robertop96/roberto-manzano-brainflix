@@ -2,24 +2,26 @@
 @include font-list;
 
 .video-info {
-  display: flex;
-  flex-direction: column;
-  @include tablet {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+  @include flex-column;
   &__title {
-    margin-bottom: 1rem;
     text-align: left;
+    margin-bottom: 1rem;
     @include h2-header;
     @include tablet {
-      margin-bottom: 1.5rem;
+      font-size: 2.125rem;
       flex-basis: 100%;
-      font-size: 34px;
+      margin-bottom: 1.5rem;
     }
     @include desktop {
-      font-size: 40px;
+      font-size: 2.25rem;
       margin-top: 2rem;
+    }
+  }
+  &__social {
+    @include flex-column;
+    @include tablet {
+      @include flex-row;
+      width: 45rem;
     }
   }
   &__channel {
@@ -36,12 +38,12 @@
       font-weight: 600;
     }
   }
-  &__social-medial {
+  &__social-media {
     display: flex;
     margin-bottom: 1.5rem;
     @include tablet {
-      margin-left: auto;
       align-items: baseline;
+      margin-left: auto;
     }
     &--viewsIcon {
       margin-right: 0.5rem;
@@ -70,22 +72,20 @@
       }
     }
   }
-  &__divider {
-    margin-bottom: 1.5rem;
-    border: 1px solid $divider;
-    @include tablet {
-      flex-basis: 100%;
-      margin-bottom: 2.5rem;
-    }
-  }
   &__description {
-    @include h4-paragraph;
+    border-top: 1px solid $divider;
+    padding-top: 1rem;
     margin-bottom: 2.5rem;
     @include tablet {
-      width: 600px;
+      width: 45rem;
       font-size: 1.2rem;
       line-height: 1.8rem;
       margin-bottom: 4rem;
+    }
+    &--text {
+      @include tablet {
+        width: 34rem;
+      }
     }
   }
 }

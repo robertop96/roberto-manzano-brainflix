@@ -5,10 +5,10 @@
   border-bottom: 1px solid $divider;
   padding-bottom: 1rem;
   @include tablet {
-    width: 720px;
+    width: 45rem;
   }
   @include desktop {
-    width: 712px;
+    width: 44.5rem;
   }
   &__title {
     @include h1-header;
@@ -24,7 +24,6 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-
     @include tablet {
       justify-content: flex-start;
       align-items: center;
@@ -49,8 +48,8 @@
       }
       &--label {
         @include h3-subheader;
-        font-weight: 800;
         color: $text-label;
+        font-weight: 800;
         margin-bottom: 1rem;
         @include tablet {
           margin-bottom: 0;
@@ -63,17 +62,15 @@
         background-color: $text-field-background;
         height: 6rem;
         border-radius: 0.313rem;
-        padding-left: 1.5rem;
-        padding-top: 1.5rem;
+        padding: 1.5rem 0 0 1.5rem;
         margin-bottom: 1rem;
         @include tablet {
-          width: 440px;
+          width: 27.5rem;
           height: 3rem;
-          padding-top: 1rem;
-          margin-right: 1rem;
+          padding: 1rem 0 0 1rem;
         }
         @include desktop {
-          width: 436px;
+          width: 27.25rem;
         }
         &::placeholder {
           @include h5-labels;
@@ -91,12 +88,10 @@
       margin-bottom: 1.5rem;
       @include tablet {
         width: 10rem;
-        margin-top: 1.4rem;
-        margin-bottom: 0;
+        margin: 1.4rem 0 0 0;
       }
       @include desktop {
         width: 10rem;
-        margin-top: 2.5rem;
       }
     }
   }

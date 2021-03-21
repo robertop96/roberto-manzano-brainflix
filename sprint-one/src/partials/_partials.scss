@@ -39,15 +39,6 @@ $desktop: 1440px;
     margin: 0 11.25rem;
   }
 }
-@mixin side-margin-logo {
-  margin-left: 1rem;
-  @media (min-width: $tablet) {
-    margin-left: 1.5rem;
-  }
-  @media (min-width: $desktop) {
-    margin-left: 11.25rem;
-  }
-}
 @mixin flex-row {
   display: flex;
   flex-direction: row;
@@ -55,12 +46,6 @@ $desktop: 1440px;
 @mixin flex-column {
   display: flex;
   flex-direction: column;
-}
-@mixin button {
-  color: white;
-  background-color: $band-primary-cta;
-  border: none;
-  border-radius: 0.25rem;
 }
 @mixin button-brainflix {
   color: white;

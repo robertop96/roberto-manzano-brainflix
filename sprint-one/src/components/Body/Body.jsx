@@ -10,34 +10,34 @@ import moment from 'moment';
 
 export default class Body extends Component {
   state = {
-    videos: VideoDetails[0],
+    currentVideo: VideoDetails[0],
   };
   handleNextVideo = (id) => {
     let selectedVideo = VideoDetails.find((video) => video.id === id);
     this.setState({
-      videos: selectedVideo,
+      currentVideo: selectedVideo,
     });
   };
 
   render() {
-    const { videos } = this.state;
+    const { currentVideo } = this.state;
     return (
       <main>
         <figure className="video">
-          <Video image={videos.image} />
+          <Video image={currentVideo.image} />
         </figure>
         <section className="content">
           <article className="content__video-information">
             <VideoInfo
-              title={videos.title}
-              channel={videos.channel}
-              timestamp={videos.timestamp}
-              views={videos.views}
-              likes={videos.likes}
-              description={videos.description}
+              title={currentVideo.title}
+              channel={currentVideo.channel}
+              timestamp={currentVideo.timestamp}
+              views={currentVideo.views}
+              likes={currentVideo.likes}
+              description={currentVideo.description}
             />
-            <Form comments={videos.comments} />
-            {videos.comments.map((comment, index) => {
+            <Form comments={currentVideo.comments} />
+            {currentVideo.comments.map((comment, index) => {
               return (
                 <Comments
                   key={index}
@@ -51,7 +51,7 @@ export default class Body extends Component {
           </article>
           <article className="content__next-video">
             <h3 className="content__next-video--title">Next Video</h3>
-            {VideoDetails.filter((object) => !(object === this.state.videos)).map((video, index) => {
+            {VideoDetails.filter((video) => !(video === this.state.currentVideo)).map((video) => {
               return (
                 <NextVideo
                   handleNextVideo={() => {

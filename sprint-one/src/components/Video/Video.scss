@@ -12,15 +12,12 @@
     height: 40%;
     object-fit: cover;
     @include tablet {
-      margin-left: 2rem;
-      margin-right: 2rem;
-      width: 700px;
+      margin: 0 2rem;
+      min-width: 43.75rem;
     }
     @include desktop {
-      width: 944px;
-      height: 540px;
-      margin-left: 248px;
-      margin-right: 248px;
+      width: 59rem;
+      height: 33.75rem;
     }
   }
 }
