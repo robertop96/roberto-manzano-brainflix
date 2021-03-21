@@ -2,14 +2,13 @@
 @include font-list;
 
 .container {
-  @include flex-column;
-  @include tablet {
-  }
+  border-bottom: 1px solid $divider;
+  padding-bottom: 1rem;
   &__title {
     @include h1-header;
+    font-weight: 600;
     text-align: left;
     margin-bottom: 2rem;
-    font-weight: 600;
     @include tablet {
       @include h2-header;
     }
@@ -18,47 +17,57 @@
     @include flex-row;
     flex-wrap: wrap;
     justify-content: center;
-    // width: auto;
+    width: 100%;
+
     @include tablet {
-      // align-items: baseline;
       justify-content: flex-start;
+      align-items: center;
     }
-    &__figure {
+    @include desktop {
+      margin-bottom: 3rem;
+    }
+    &__profile-picture {
       @include Profile-picture;
       margin-top: 3rem;
       @include tablet {
-        margin-top: 2.5rem;
+        margin-top: 0rem;
+      }
+    }
+    &__comment-container {
+      @include tablet {
+        @include flex-row;
       }
     }
     &__textarea {
       @include flex-column;
       width: 14rem;
       @include tablet {
-        // flex-direction: row;
         width: 28.75rem;
       }
       &--label {
         @include h3-subheader;
-        color: $text-label;
         font-weight: 800;
+        color: $text-label;
         margin-bottom: 1rem;
+        @include tablet {
+          margin-bottom: 0;
+        }
         @include desktop {
           font-size: 0.8rem;
           margin-top: 1rem;
-          margin-bottom: 0rem;
         }
       }
       &--textarea {
-        padding-top: 1.5rem;
-        padding-left: 1.5rem;
-        height: 6rem;
         background-color: $text-field-background;
+        height: 6rem;
         border-radius: 0.313rem;
+        padding-left: 1.5rem;
+        padding-top: 1.5rem;
         margin-bottom: 1rem;
         @include tablet {
-          padding-top: 1rem;
           width: 440px;
           height: 3rem;
+          padding-top: 1rem;
           margin-right: 1rem;
         }
         @include desktop {
@@ -79,20 +88,14 @@
       height: 3rem;
       margin-bottom: 1.5rem;
       @include tablet {
-        margin-top: 2.5rem;
-        min-width: 10rem;
+        width: 10rem;
+        margin-top: 1.4rem;
+        margin-bottom: 0;
       }
       @include desktop {
         width: 10rem;
+        margin-top: 2.5rem;
       }
     }
   }
-  // &__divider--top {
-  //   border-top: 1px solid $divider;
-  //   @include tablet {
-  //     display: block;
-  //     width: 95%;
-  //     border-top: 1px solid $divider;
-  //   }
-  // }
 }

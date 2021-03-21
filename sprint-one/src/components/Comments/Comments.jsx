@@ -6,10 +6,10 @@ function Comments({ image, name, comment, date }) {
       <figure className="comment__figure">
         <img className="comment__figure-img" src={image} alt="profile" />
       </figure>
-      <article className="comment__section">
-        <h3 className="comment__section--name">{name}</h3>
-        <div className="comment__section--date">{date}</div>
-        <p className="comment__section--comment">{comment}</p>
+      <article className="comment-section">
+        <h3 className="comment-section__name">{name}</h3>
+        <div className="comment-section__date">{date}</div>
+        <p className="comment-section__comment">{comment}</p>
       </article>
     </section>
   );

@@ -14,7 +14,6 @@ export default class Body extends Component {
     videos: VideoDetails[0],
     sideVideos: VideoList,
   };
-
   handleNextVideo = (event) => {
     let id = event.target.id;
     let selectedVideo = VideoDetails.find((video) => video.id === id);
