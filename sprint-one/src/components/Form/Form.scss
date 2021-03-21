@@ -4,6 +4,12 @@
 .container {
   border-bottom: 1px solid $divider;
   padding-bottom: 1rem;
+  @include tablet {
+    width: 720px;
+  }
+  @include desktop {
+    width: 712px;
+  }
   &__title {
     @include h1-header;
     font-weight: 600;
@@ -22,9 +28,6 @@
     @include tablet {
       justify-content: flex-start;
       align-items: center;
-    }
-    @include desktop {
-      margin-bottom: 3rem;
     }
     &__profile-picture {
       @include Profile-picture;
@@ -54,7 +57,6 @@
         }
         @include desktop {
           font-size: 0.8rem;
-          margin-top: 1rem;
         }
       }
       &--textarea {

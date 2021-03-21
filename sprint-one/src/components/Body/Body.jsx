@@ -6,26 +6,21 @@ import Form from '../Form/Form';
 import Comments from '../Comments/Comments';
 import NextVideo from '../NextVideo/NextVideo';
 import VideoDetails from '../../data/video-details.json';
-import VideoList from '../../data/videos.json';
 import moment from 'moment';
 
 export default class Body extends Component {
   state = {
     videos: VideoDetails[0],
-    sideVideos: VideoList,
   };
-  handleNextVideo = (event) => {
-    let id = event.target.id;
+  handleNextVideo = (id) => {
     let selectedVideo = VideoDetails.find((video) => video.id === id);
-    let newSideVideo = VideoList.filter((video) => !(video.id === id));
     this.setState({
       videos: selectedVideo,
-      sideVideos: newSideVideo,
     });
   };
 
   render() {
-    const { videos, sideVideos } = this.state;
+    const { videos } = this.state;
     return (
       <main>
         <figure className="video">
@@ -56,10 +51,12 @@ export default class Body extends Component {
           </article>
           <article className="content__next-video">
             <h3 className="content__next-video--title">Next Video</h3>
-            {sideVideos.map((video, index) => {
+            {VideoDetails.filter((object) => !(object === this.state.videos)).map((video, index) => {
               return (
                 <NextVideo
-                  handleNextVideo={this.handleNextVideo}
+                  handleNextVideo={() => {
+                    this.handleNextVideo(video.id);
+                  }}
                   key={video.id}
                   id={video.id}
                   image={video.image}
