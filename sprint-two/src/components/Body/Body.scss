@@ -1,0 +1,34 @@
+@import '../../partials/_partials.scss';
+@include font-list;
+
+.video {
+  background-color: black;
+}
+.content {
+  @include flex-column;
+  @include desktop {
+    flex-direction: row;
+    @include desktop {
+      justify-content: center;
+    }
+  }
+  &__video-information {
+    @include side-margin;
+    @include desktop {
+      margin-left: 11rem;
+      width: 712px;
+      border-right: 1px solid $divider;
+      margin-right: 2rem;
+    }
+  }
+  &__next-video {
+    @include side-margin;
+    @include desktop {
+      margin: 0 11rem 0 0;
+    }
+    &--title {
+      color: $text-label;
+      margin: 2.5rem 0;
+    }
+  }
+}

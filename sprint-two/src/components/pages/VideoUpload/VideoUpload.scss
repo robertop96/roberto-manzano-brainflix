@@ -1,0 +1,115 @@
+@import "../../../partials/partials";
+@include font-list;
+
+.upload-container {
+  @include side-margin;
+  @include desktop {
+    flex-direction: row;
+    margin-right: 0;
+  }
+  &__title {
+    @include h2-header;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    @include tablet {
+      margin-top: 3rem;
+    }
+    @include desktop {
+    }
+  }
+  .Thumbnail {
+    margin-bottom: 2rem;
+    @include flex-column;
+    @include tablet {
+      border-top: 1px solid $divider;
+      padding-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    &__title{
+      @include h3-subheader;
+      color: $text-label;
+      font-weight: 600;
+    }
+    &__figure {
+      width: 288px;
+      height: 153px;
+      @include tablet {
+        width: 344px;
+        height: 183px;
+      }
+      &--img {
+        width: 100%;
+      }
+    }
+  }
+  .form {
+    @include flex-column;
+    
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    &__title-label {
+      @include h5-labels;
+      color: $text-label;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    &__title-input {
+      margin-bottom: 1.5rem;
+      width: 100%;
+      height: 48px;
+      &[input] {
+        }
+    }
+    &__description-label {
+      @include h5-labels;
+      color: $text-label;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    &__description-input {
+      width: 288px;
+      height: 143px;
+      margin-bottom: 32px;
+      width: 100%;
+      @include desktop {
+        height: 94px;
+      }
+     
+    }
+  }
+  .submission {
+    @include flex-column;
+    @include tablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
+    @include desktop {
+    }
+    
+    &__cancel {
+@include button-brainflix;
+background-color: white;
+font-weight: 800;
+width: 288px;
+height: 48px;
+margin-bottom: 1.5rem;
+color:$brain-primary-cta;
+@include tablet {
+  width: auto;
+  margin-right: 40px
+}
+
+    }
+    &__submit {
+      @include button-brainflix;
+      font-weight: 800;
+      width: 288px;
+      height: 48px;
+      @include tablet {
+        width: 160px
+      }
+    }
+  }
+}

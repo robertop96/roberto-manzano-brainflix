@@ -1,0 +1,30 @@
+@import '../../partials/partials';
+
+.next-video {
+  display: flex;
+  &__figure {
+    margin: 0 1rem 1.5rem 0;
+    &--img {
+      width: 7.5rem;
+      height: 4.375rem;
+      border-radius: 4px;
+    }
+  }
+  &__description {
+    &--title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      @include tablet {
+        min-width: 12.5rem;
+      }
+    }
+    &--channel {
+      margin-top: 0.5rem;
+    }
+  }
+}
