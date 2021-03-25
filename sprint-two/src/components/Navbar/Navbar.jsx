@@ -2,7 +2,7 @@ import './Navbar.scss';
 import '../../partials/_partials.scss';
 import logo from '../../assets/Logo/Logo-brainflix.svg';
 import profilePic from '../../assets/Images/Mohan-muruge.jpg';
-import { BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -14,9 +14,13 @@ function Navbar() {
           </NavLink>
         </figure>
         <div className="navbar__upload">
-          <input className="navbar__upload--search" type="text" placeholder="Search" />
+          <input
+            className="navbar__upload--search"
+            type="text"
+            placeholder="Search"
+          />
           <NavLink to="/VideoUpload">
-          <button className="navbar__upload--button">UPLOAD</button>
+            <button className="navbar__upload--button">UPLOAD</button>
           </NavLink>
           <figure className="navbar__upload--figure">
             <img className="navbar__upload--img" src={profilePic} alt="" />

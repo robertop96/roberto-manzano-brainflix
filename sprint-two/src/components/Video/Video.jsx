@@ -1,8 +1,8 @@
 import './Video.scss';
-import VideoDetails from '../../data/video-details.json';
+// import VideoDetails from '../../data/video-details.json';
 
-function Video() {
-  const currentVideo = VideoDetails[0];
+function Video({ currentVideo }) {
+  // const currentVideo = VideoDetails[0];
   return (
     <figure className="videoFigure">
       <video

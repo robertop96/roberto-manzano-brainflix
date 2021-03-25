@@ -1,25 +1,17 @@
 import './NextVideo.scss';
-import VideoDetails from '../../data/video-details.json';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function NextVideo({ image, title, channel, handleNextVideo, id }) {
-  const currentVideo = VideoDetails[0];
+function NextVideo({ currentVideo, videoList }) {
   return (
     <section>
-      {VideoDetails.filter((video) => !(video === currentVideo)).map(
-        (video) => {
+      {videoList
+        .filter((video) => !(video.id === currentVideo.id))
+        .map((video) => {
           return (
             <Link
               key={video.id}
               className="next-video"
-              to={`./video/${video.id}`}
-              className="next-video"
+              to={`/video/${video.id}`}
             >
               <figure className="next-video__figure">
                 <img
@@ -38,8 +30,7 @@ function NextVideo({ image, title, channel, handleNextVideo, id }) {
               </div>
             </Link>
           );
-        }
-      )}
+        })}
     </section>
   );
 }

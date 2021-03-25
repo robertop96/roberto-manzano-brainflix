@@ -1,8 +1,8 @@
 import './Form.scss';
-import VideoDetails from '../../data/video-details.json';
+// import VideoDetails from '../../data/video-details.json';
 
-function Form() {
-  const currentVideo = VideoDetails[0].comments;
+function Form({ currentVideo }) {
+  // const currentVideo = VideoDetails[0].comments;
   return (
     <section className="container">
       <h1 className="container__title">{currentVideo.length} Comments</h1>

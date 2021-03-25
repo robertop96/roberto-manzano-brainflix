@@ -1,9 +1,9 @@
 import './Comments.scss';
-import VideoDetails from '../../data/video-details.json';
+// import VideoDetails from '../../data/video-details.json';
 import moment from 'moment';
 
-function Comments({ image, name, comment, date }) {
-  const currentVideo = VideoDetails[0];
+function Comments({ currentVideo }) {
+  // const currentVideo = VideoDetails[0];
   return (
     <div>
       {currentVideo.comments.map((video) => {
