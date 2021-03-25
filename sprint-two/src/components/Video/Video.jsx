@@ -8,7 +8,7 @@ function Video({ currentVideo }) {
       <video
         className="videoFigure__video"
         controls
-        poster={currentVideo.image}
+        poster={currentVideo?.image}
       ></video>
     </figure>
   );
