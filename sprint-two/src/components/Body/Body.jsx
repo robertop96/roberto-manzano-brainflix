@@ -7,7 +7,6 @@ import Comments from '../Comments/Comments';
 import NextVideo from '../NextVideo/NextVideo';
 import axios from 'axios';
 
-const api = 'https://project-2-api.herokuapp.com/videos/';
 const key = '?api_key=110384a1-246f-4eb7-b30e-631184749f49';
 const videosFetch =
   'https://project-2-api.herokuapp.com/videos?api_key=110384a1-246f-4eb7-b30e-631184749f49';
@@ -18,9 +17,24 @@ export default class Body extends Component {
     videoList: null
   };
 
-  postAxios(url) {
-    axios
-      .get(url)
+  AxiosGetVideoList(requestType, apiUrl) {
+    axios({
+      method: requestType,
+      url: apiUrl
+    })
+      .then((response) => {
+        this.setState({ videoList: response.data });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
+  AxiosGetCurrentVideo(requestType, apiUrl) {
+    axios({
+      method: requestType,
+      url: apiUrl
+    })
       .then((response) => {
         this.setState({ currentVideo: response.data });
       })
@@ -28,26 +42,29 @@ export default class Body extends Component {
         console.log(error.message);
       });
   }
+  // postAxios1(requestType, apiUrl, state) {
+  //   axios({
+  //     method: requestType,
+  //     url: apiUrl
+  //   })
+  //     .then((response) => {
+  //       this.setState({ state: { [state]: response.data } });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.message);
+  //     });
+  // }
 
   componentDidMount() {
-    axios
-      .get(videosFetch)
-      .then((response) => {
-        this.setState({ videoList: response.data });
-      })
-      .then(() => {
-        axios
-          .get(`${api}1af0jruup5gu${key}`)
-          .then((response) => {
-            this.setState({ currentVideo: response.data });
-          })
-          .catch((error) => {
-            console.log(error.message);
-          });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    this.AxiosGetVideoList('get', videosFetch);
+    if (!this.props.match.params.id) {
+      let getLink = `https://project-2-api.herokuapp.com/videos/1af0jruup5gu${key}`;
+      this.AxiosGetCurrentVideo('get', getLink);
+    } else {
+      let id = this.props.match.params.id;
+      let getLink = `https://project-2-api.herokuapp.com/videos/${id}${key}`;
+      this.AxiosGetCurrentVideo('get', getLink);
+    }
   }
   //this.props.match.params.id IS CREATED WHEN nextVideo FILTERS AND MAPS TO CREATE THE VIDEO LIST INSIDE THE Link route.
   componentDidUpdate(prevProps) {
@@ -58,64 +75,37 @@ export default class Body extends Component {
     ) {
       // GETS AN SPECIFIC VIDEO USING THE ID OF THE PAGE WE HAVE CLICKED IN THE LINK.
       let id = this.props.match.params.id;
-      axios
-        .get(
-          `https://project-2-api.herokuapp.com/videos/${id}?api_key=110384a1-246f-4eb7-b30e-631184749f49`
-        )
-        .then((response) => {
-          this.setState({ currentVideo: response.data });
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
+      let getLink = `https://project-2-api.herokuapp.com/videos/${id}${key}`;
+      this.AxiosGetCurrentVideo('get', getLink);
     } else if (
       // IF MY CURRENT id IS DIFFERENT THAN MY prevProps id && AND MY CURRENT id IS false (UNIDENTIFIED) THEN...
       this.props.match.params.id !== prevProps.match.params.id &&
       !this.props.match.params.id
     ) {
-      axios
-        // LOADS DEFAULT IMAGE.
-        .get(
-          `https://project-2-api.herokuapp.com/videos/1af0jruup5gu?api_key=110384a1-246f-4eb7-b30e-631184749f49`
-        )
-        .then((response) => {
-          this.setState({ currentVideo: response.data });
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
+      let getLink = `https://project-2-api.herokuapp.com/videos/1af0jruup5gu${key}`;
+      this.AxiosGetCurrentVideo('get', getLink);
     }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let commentObject = {
-      name: 'BrainStation Man',
-      comment: e.target.comment.value
-    };
     const id = this.state.currentVideo.id;
     axios
-      .post(
-        `https://project-2-api.herokuapp.com/videos/${id}/comments?api_key=110384a1-246f-4eb7-b30e-631184749f49`,
-        commentObject
-      )
-      .then((response) => {
-        axios
-          .get(
-            `https://project-2-api.herokuapp.com/videos/${id}?api_key=110384a1-246f-4eb7-b30e-631184749f49`
-          )
-          .then((response) => {
-            this.setState({ currentVideo: response.data });
-          })
-          .catch((error) => {
-            console.log(error.message);
-          });
+      .post(`https://project-2-api.herokuapp.com/videos/${id}/comments${key}`, {
+        name: 'BrainStation Man',
+        comment: e.target.comment.value
+      })
+      .then(() => {
+        let getLink = `https://project-2-api.herokuapp.com/videos/${id}${key}`;
+        this.AxiosGetCurrentVideo('get', getLink);
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
+
   render() {
+    console.log(this.props);
     return (
       <>
         {this.state.currentVideo && this.state.videoList && (
