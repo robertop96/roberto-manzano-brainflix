@@ -19,7 +19,8 @@ function Form({ currentVideo, handleSubmit }) {
             <label className="form__textarea--label" htmlFor="comment">
               JOIN THE CONVERSATION
             </label>
-            <textarea
+            <input
+              type="text"
               className="form__textarea--textarea"
               name="comment"
               id="comment"
@@ -27,9 +28,11 @@ function Form({ currentVideo, handleSubmit }) {
               rows="10"
               placeholder="Add a new comment"
               required
-            ></textarea>
+            ></input>
           </div>
-          <button className="form__button">COMMENT</button>
+          <button type="button" className="form__button">
+            COMMENT
+          </button>
         </article>
       </form>
     </section>

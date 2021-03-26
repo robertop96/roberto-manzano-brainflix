@@ -59,15 +59,15 @@
         }
       }
       &--textarea {
+        border: 1px solid rgb(161, 156, 156);
         background-color: $text-field-background;
         height: 6rem;
         border-radius: 0.313rem;
-        padding: 1.5rem 0 0 1.5rem;
+        padding: 0 0 0 1.5rem;
         margin-bottom: 1rem;
         @include tablet {
           width: 27.5rem;
           height: 3rem;
-          padding: 1rem 0 0 1rem;
         }
         @include desktop {
           width: 27.25rem;

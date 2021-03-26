@@ -102,6 +102,7 @@ export default class Body extends Component {
       .catch((error) => {
         console.log(error.message);
       });
+    e.target.reset();
   };
   handleDelete = (commentID) => {
     const id = this.state.currentVideo.id;
