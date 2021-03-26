@@ -1,15 +1,13 @@
 @import '../../partials/_partials.scss';
 @include font-list;
 
-.video {
-  background-color: black;
-}
 .content {
   @include flex-column;
   @include desktop {
     flex-direction: row;
     @include desktop {
       justify-content: center;
+      align-items: center;
     }
   }
   &__video-information {
@@ -17,6 +15,7 @@
     @include desktop {
       margin-left: 11rem;
       width: 712px;
+      margin-bottom: 2rem;
       border-right: 1px solid $divider;
       margin-right: 2rem;
     }
@@ -25,10 +24,6 @@
     @include side-margin;
     @include desktop {
       margin: 0 11rem 0 0;
-    }
-    &--title {
-      color: $text-label;
-      margin: 2.5rem 0;
     }
   }
 }

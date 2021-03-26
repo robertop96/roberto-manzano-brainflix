@@ -1,16 +1,16 @@
 import './Video.scss';
-// import VideoDetails from '../../data/video-details.json';
 
 function Video({ currentVideo }) {
-  // const currentVideo = VideoDetails[0];
   return (
-    <figure className="videoFigure">
-      <video
-        className="videoFigure__video"
-        controls
-        poster={currentVideo?.image}
-      ></video>
-    </figure>
+    <section className="video">
+      <figure className="video__figure">
+        <video
+          className="video__figure--video"
+          controls
+          poster={currentVideo.image}
+        ></video>
+      </figure>
+    </section>
   );
 }
 export default Video;

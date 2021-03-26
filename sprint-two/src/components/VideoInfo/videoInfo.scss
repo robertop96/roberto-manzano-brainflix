@@ -82,6 +82,9 @@
       line-height: 1.8rem;
       margin-bottom: 4rem;
     }
+    @include desktop {
+      width: 44.5rem;
+    }
     &--text {
       @include tablet {
         width: 34rem;

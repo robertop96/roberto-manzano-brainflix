@@ -1,12 +1,12 @@
 import './Form.scss';
 // import VideoDetails from '../../data/video-details.json';
 
-function Form({ currentVideo }) {
+function Form({ currentVideo, handleSubmit }) {
   // const currentVideo = VideoDetails[0].comments;
   return (
     <section className="container">
       <h1 className="container__title">{currentVideo?.length} Comments</h1>
-      <form className="form">
+      <form onSubmit={handleSubmit} className="form">
         <figure className="form__profile-picture">
           <img
             className="form__profile-picture--img"

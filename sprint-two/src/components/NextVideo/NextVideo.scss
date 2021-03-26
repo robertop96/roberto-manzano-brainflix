@@ -1,7 +1,15 @@
 @import '../../partials/partials';
 
+.videos-container {
+  &--title {
+    color: $text-label;
+    margin: 2.5rem 0;
+  }
+}
 .next-video {
   display: flex;
+  text-decoration: none;
+  color: black;
   &__figure {
     margin: 0 1rem 1.5rem 0;
     &--img {

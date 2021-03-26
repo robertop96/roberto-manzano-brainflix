@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 
 function NextVideo({ currentVideo, videoList }) {
   return (
-    <section>
+    <section className="videos-container">
+      <h3 className="videos-container--title">Next Video</h3>
       {videoList
         .filter((video) => !(video.id === currentVideo.id))
         .map((video) => {
           return (
-            <Link //WHEN Link PUSH TO .video/video.id THE .match.params IS CREATED.
+            //WHEN Link PUSH TO .video/video.id THE .match.params IS CREATED.
+            <Link
               key={video.id}
               className="next-video"
               to={`/video/${video.id}`}
