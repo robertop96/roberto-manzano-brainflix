@@ -1,7 +1,7 @@
 import './Comments.scss';
 import moment from 'moment';
 
-function Comments({ currentVideo }) {
+function Comments({ currentVideo, handleDelete }) {
   return (
     <div>
       {currentVideo.comments
@@ -22,6 +22,12 @@ function Comments({ currentVideo }) {
                   {moment.unix(video.timestamp / 1000).fromNow()}
                 </div>
                 <p className="comment-section__comment">{video.comment}</p>
+                <button
+                  onClick={() => handleDelete(video.id)}
+                  className="comment-section__button"
+                >
+                  Delete
+                </button>
               </article>
             </section>
           );

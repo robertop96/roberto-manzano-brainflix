@@ -103,6 +103,22 @@ export default class Body extends Component {
         console.log(error.message);
       });
   };
+  handleDelete = (commentID) => {
+    const id = this.state.currentVideo.id;
+    // const commentID = this.state.currentVideo;
+    // console.log(videoID);
+    // console.log(commentID);
+    // console.log(key);
+    axios
+      .delete(
+        `https://project-2-api.herokuapp.com/videos/${id}/comments/${commentID}${key}`
+      )
+      .then(() => {
+        let getLink = `https://project-2-api.herokuapp.com/videos/${id}${key}`;
+        this.AxiosGetCurrentVideo('get', getLink);
+      })
+      .catch((error) => console.log(error.message));
+  };
 
   render() {
     console.log(this.props);
@@ -118,7 +134,10 @@ export default class Body extends Component {
                   currentVideo={this.state.currentVideo}
                   handleSubmit={this.handleSubmit}
                 />
-                <Comments currentVideo={this.state.currentVideo} />
+                <Comments
+                  currentVideo={this.state.currentVideo}
+                  handleDelete={this.handleDelete}
+                />
               </article>
               <article className="content__next-video">
                 <NextVideo
