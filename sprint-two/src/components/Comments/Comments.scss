@@ -49,13 +49,11 @@
       }
     }
     &__button {
-      margin-bottom: 1rem;
-      margin-right: 1rem;
       @include button-brainflix;
       width: 3.5rem;
       height: 2rem;
-      @include desktop {
-      }
+      margin-right: 1rem;
+      margin-bottom: 1rem;
     }
   }
 }

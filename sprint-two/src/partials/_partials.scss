@@ -73,6 +73,11 @@ $desktop: 1440px;
   border: 3px solid $brain-primary-cta;
   box-shadow: none;
 }
+
+@mixin form-input-box {
+  border: 1px solid rgb(161, 156, 156);
+  background-color: $text-field-background;
+}
 // FONT SIZES **********************************************************
 @mixin h1-hero {
   font-size: 1.5rem;
@@ -132,35 +137,41 @@ $desktop: 1440px;
 @mixin font-list {
   @font-face {
     font-family: 'Avenir Next';
-    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-It.otf') format('opentype');
+    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-It.otf')
+      format('opentype');
   }
   @font-face {
     font-family: 'Avenir Next';
-    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-It.otf') format('opentype');
+    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-It.otf')
+      format('opentype');
     font-weight: normal;
     font-style: italic;
   }
   @font-face {
     font-family: 'Avenir Next';
-    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Demi.otf') format('opentype');
+    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Demi.otf')
+      format('opentype');
     font-weight: 600;
     font-style: normal;
   }
   @font-face {
     font-family: 'Avenir Next';
-    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-DemiIt.otf') format('opentype');
+    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-DemiIt.otf')
+      format('opentype');
     font-weight: 600;
     font-style: italic;
   }
   @font-face {
     font-family: 'Avenir Next';
-    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Bold.otf') format('opentype');
+    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-Bold.otf')
+      format('opentype');
     font-weight: 700;
     font-style: normal;
   }
   @font-face {
     font-family: 'Avenir Next';
-    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-BoldIt.otf') format('opentype');
+    src: url('../assets/fonts/AvenirNextProLT/Linotype-AvenirNextLTPro-BoldIt.otf')
+      format('opentype');
     font-weight: 700;
     font-style: italic;
   }

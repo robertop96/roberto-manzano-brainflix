@@ -8,11 +8,11 @@ function Comments({ currentVideo, handleDelete }) {
         .sort((a, b) => b.timestamp - a.timestamp)
         .map((video) => {
           return (
-            <section className="comment">
+            <section key={video.id} className="comment">
               <figure className="comment__figure">
                 <img
                   className="comment__figure-img"
-                  src={currentVideo.image}
+                  src="https://picsum.photos/48/48?random=1"
                   alt="profile"
                 />
               </figure>

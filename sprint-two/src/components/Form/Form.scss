@@ -59,8 +59,7 @@
         }
       }
       &--textarea {
-        border: 1px solid rgb(161, 156, 156);
-        background-color: $text-field-background;
+        @include form-input-box;
         height: 6rem;
         border-radius: 0.313rem;
         padding: 0 0 0 1.5rem;

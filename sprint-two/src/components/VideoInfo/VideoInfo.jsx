@@ -8,7 +8,7 @@ function VideoInfo({ currentVideo }) {
   // const homeVideo = VideoDetails[0];
   return (
     <article className="video-info">
-      <h1 className="video-info__title">{currentVideo?.title}</h1>
+      <h1 className="video-info__title">{currentVideo.title}</h1>
       <div className="video-info__social">
         <article className="video-info__channel">
           <h3 className="video-info__channel--name">
