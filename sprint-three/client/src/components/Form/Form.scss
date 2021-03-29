@@ -1,0 +1,97 @@
+@import '../../partials/partials';
+@include font-list;
+
+.container {
+  border-bottom: 1px solid $divider;
+  padding-bottom: 1rem;
+  @include tablet {
+    width: 45rem;
+  }
+  @include desktop {
+    width: 44.5rem;
+  }
+  &__title {
+    @include h1-header;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 2rem;
+    @include tablet {
+      @include h2-header;
+    }
+  }
+  .form {
+    @include flex-row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    @include tablet {
+      justify-content: flex-start;
+      align-items: center;
+    }
+    &__profile-picture {
+      @include Profile-picture;
+      margin-top: 3rem;
+      @include tablet {
+        margin-top: 0rem;
+      }
+    }
+    &__comment-container {
+      @include tablet {
+        @include flex-row;
+      }
+    }
+    &__textarea {
+      @include flex-column;
+      width: 14rem;
+      @include tablet {
+        width: 28.75rem;
+      }
+      &--label {
+        @include h3-subheader;
+        color: $text-label;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        @include tablet {
+          margin-bottom: 0;
+        }
+        @include desktop {
+          font-size: 0.8rem;
+        }
+      }
+      &--textarea {
+        @include form-input-box;
+        height: 6rem;
+        border-radius: 0.313rem;
+        padding: 0 0 0 1.5rem;
+        margin-bottom: 1rem;
+        @include tablet {
+          width: 27.5rem;
+          height: 3rem;
+        }
+        @include desktop {
+          width: 27.25rem;
+        }
+        &::placeholder {
+          @include h5-labels;
+        }
+        &:focus {
+          @include input-focus;
+        }
+      }
+    }
+    &__button {
+      @include button-brainflix;
+      font-weight: 600;
+      width: 14rem;
+      height: 3rem;
+      margin-bottom: 1.5rem;
+      @include tablet {
+        width: 10rem;
+        margin: 1.4rem 0 0 0;
+      }
+      @include desktop {
+        width: 10rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@import '../../partials/partials';
+@include font-list;
+
+.comment {
+  @include flex-row;
+  justify-content: center;
+  border-bottom: 1px solid $divider;
+  margin-top: 1.5rem;
+  @include tablet {
+    width: 45rem;
+    justify-content: flex-start;
+  }
+  @include desktop {
+    width: 44.5rem;
+    margin-top: 1rem;
+  }
+  &__figure {
+    @include Profile-picture;
+    flex-shrink: 0;
+  }
+  .comment-section {
+    @include flex-row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    @include tablet {
+      width: 39rem;
+      justify-content: flex-start;
+    }
+    &__name {
+      @include h5-labels;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      @include tablet {
+        margin: 0 1rem 0 0;
+      }
+    }
+    &__date {
+      @include h4-paragraph;
+      color: $text-label;
+    }
+    &__comment {
+      flex: 100%;
+      width: 1.5rem;
+      word-wrap: break-word;
+      margin-bottom: 1.5rem;
+      @include desktop {
+        margin-bottom: 0.5rem;
+      }
+    }
+    &__button {
+      @include button-brainflix;
+      width: 3.5rem;
+      height: 2rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
