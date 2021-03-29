@@ -8,6 +8,7 @@ function Form({ comments }) {
         <figure className="form__profile-picture">
           <img className="form__profile-picture--img" src="http://placeimg.com/48/48/any" alt="" />
         </figure>
+        
         <article className="form__comment-container">
           <div className="form__textarea">
             <label className="form__textarea--label" htmlFor="comment">

@@ -10,12 +10,12 @@ import moment from 'moment';
 
 export default class Body extends Component {
   state = {
-    currentVideo: VideoDetails[0],
+    currentVideo: VideoDetails[0]
   };
   handleNextVideo = (id) => {
     let selectedVideo = VideoDetails.find((video) => video.id === id);
     this.setState({
-      currentVideo: selectedVideo,
+      currentVideo: selectedVideo
     });
   };
 
@@ -51,7 +51,9 @@ export default class Body extends Component {
           </article>
           <article className="content__next-video">
             <h3 className="content__next-video--title">Next Video</h3>
-            {VideoDetails.filter((video) => !(video === this.state.currentVideo)).map((video) => {
+            {VideoDetails.filter(
+              (video) => !(video === this.state.currentVideo)
+            ).map((video) => {
               return (
                 <NextVideo
                   handleNextVideo={() => {
