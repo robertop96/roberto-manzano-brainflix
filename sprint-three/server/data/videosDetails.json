@@ -313,31 +313,5 @@
         "timestamp": 1542262984046
       }
     ]
-  },
-  {
-    "id": "u8t5p1xq2kn1d72bi",
-    "title": "Motherfucking great",
-    "channel": "Red Cow",
-    "image": "https://picsum.photos/500/300?random=1",
-    "description": "Hello Darkness My old Friend",
-    "views": 0,
-    "likes": 0,
-    "duration": "Not defined",
-    "video": "https://picsum.photos/500/300?random=1",
-    "timestamp": 1617431906429,
-    "comments": []
-  },
-  {
-    "id": "u8t5p1xtfkn1d9fc4",
-    "title": "Motherfucking WORKING!?",
-    "channel": "Red Cow",
-    "image": "https://picsum.photos/500/300?random=1",
-    "description": "Hello Darkness My old Friend",
-    "views": 0,
-    "likes": 0,
-    "duration": "Not defined",
-    "video": "https://picsum.photos/500/300?random=1",
-    "timestamp": 1617432016612,
-    "comments": []
   }
 ]

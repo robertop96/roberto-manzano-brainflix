@@ -24,15 +24,6 @@ const writeFile = (location, data) => {
   });
 };
 
-let videosDetails;
-fs.readFile(VideoListLocation, (error, data) => {
-  if (error) {
-    console.log(error);
-  } else {
-    videosDetails = JSON.parse(data);
-  }
-});
-
 // Get internal copy of videos information
 router.get('/internal', (req, res) => {
   const sendGetRequest = async () => {
@@ -85,6 +76,7 @@ router.get('/videos/:id', (req, res) => {
 router.post('/videos/', (req, res) => {
   try {
     const { title, description } = req.body;
+    //Reads videoList as retrievedVideoList, push Template and writesFile
     fs.readFile(VideoListLocation, (err, data) => {
       if (err) {
         console.log(err);
@@ -101,7 +93,7 @@ router.post('/videos/', (req, res) => {
         res.send(videoListTemplate);
       }
     });
-
+    //Reads videoDetails as retrievedDetails, push Template and writesFile
     fs.readFile(VideoDetailsLocation, (err, data) => {
       if (err) {
         console.log(err);
@@ -124,8 +116,6 @@ router.post('/videos/', (req, res) => {
         writeFile(VideoDetailsLocation, retrievedDetails);
       }
     });
-
-    // res.send(VideoDetailsTemplate);
   } catch (error) {
     console.log(error);
   }
