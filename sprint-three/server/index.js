@@ -1,12 +1,12 @@
 const express = require('express');
-const videos = require('./routes/videos');
-const app = express();
+const routes = require('./routes');
 const PORT = 5050;
+const app = express();
 
 app.use(express.json());
 
-app.use('/api/req', videos);
+app.use('/', routes);
 
-app.listen(5050, () => {
+app.listen(PORT, () => {
   console.log(`Listening in port ${PORT}`);
 });
