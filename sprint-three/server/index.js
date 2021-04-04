@@ -4,7 +4,7 @@ const PORT = 5050;
 const app = express();
 
 app.use(express.json());
-
+app.use(express.static(__dirname + '/public/images'));
 app.use('/', routes);
 
 app.listen(PORT, () => {

@@ -1,12 +1,13 @@
 const id = require('uniqid');
 const videoId = id();
+// const staticImage = require(__dirname + '../public/images/Upload-video-preview.jpg');
 
 const videoList = (title) => {
   return {
     id: videoId,
     title: title,
     channel: 'Filler Name',
-    image: 'https://picsum.photos/500/300?random=1'
+    image: 'http://localhost:5050/preview.jpg'
   };
 };
 
@@ -15,12 +16,12 @@ const videoDetails = (title, description) => {
     id: videoId,
     title: title,
     channel: 'Filler Name',
-    image: 'https://picsum.photos/500/300?random=1',
+    image: 'http://localhost:5050/preview.jpg',
     description: description,
     views: 0,
     likes: 0,
     duration: 'Not defined',
-    video: 'https://picsum.photos/500/300?random=1',
+    video: 'http://localhost:5050/preview.jpg',
     timestamp: Date.now(),
     comments: []
   };
