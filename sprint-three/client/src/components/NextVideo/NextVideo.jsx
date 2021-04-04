@@ -9,7 +9,6 @@ function NextVideo({ currentVideo, videoList }) {
         .filter((video) => !(video.id === currentVideo.id))
         .map((video) => {
           return (
-            //WHEN Link PUSH TO .video/video.id THE .match.params IS CREATED.
             <Link
               key={video.id}
               className="next-video"

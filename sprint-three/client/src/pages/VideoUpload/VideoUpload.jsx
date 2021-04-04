@@ -4,17 +4,24 @@ import Thumbnail from '../../assets/Images/Upload-video-preview.jpg';
 import axios from 'axios';
 
 function VideoUpload(props) {
+  const axiosGet = async (url, body) => {
+    try {
+      await axios.post(url, body);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    axios.post('/api/videos', Object.fromEntries(formData));
+    axiosGet('/api/videos', Object.fromEntries(formData));
     setTimeout(() => {
       props.history.push('/');
     }, 2000);
   };
 
-  // console.log(props);
   return (
     <form onSubmit={handleSubmit} className="upload-container">
       <h1 className="title">Upload Video</h1>

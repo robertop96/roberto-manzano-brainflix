@@ -5,7 +5,7 @@ const VideoDetailsLocation = __dirname + '/../../data/videosDetails.json';
 
 const postComment = (req, res) => {
   try {
-    const { name, comment } = req.body;
+    const { comment } = req.body;
     fs.readFile(VideoDetailsLocation, (err, data) => {
       if (err) {
         console.log(err);
@@ -14,9 +14,9 @@ const postComment = (req, res) => {
         const requestedVideo = readVideoDetails.find(
           (video) => video.id == req.params.id
         );
-        requestedVideo.comments.push(template.videoComment(name, comment));
+        requestedVideo.comments.push(template.videoComment(comment));
         write.writeFile(VideoDetailsLocation, readVideoDetails);
-        res.send(template.videoComment(name, comment));
+        res.send(requestedVideo);
       }
     });
     console.log('received at commentPosting');

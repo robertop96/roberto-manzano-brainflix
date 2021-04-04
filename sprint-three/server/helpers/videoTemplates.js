@@ -27,9 +27,9 @@ const videoDetails = (title, description) => {
   };
 };
 
-const videoComment = (name, comment) => {
+const videoComment = (comment) => {
   return {
-    name: name,
+    name: 'BrainStation Stranger',
     comment: comment,
     id: id(),
     likes: 0,

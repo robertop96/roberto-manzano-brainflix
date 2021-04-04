@@ -52,17 +52,5 @@
     "title": "Train Travel On Track For Safety",
     "channel": "Scotty Cranmer",
     "image": "https://i.imgur.com/i6S8m7I.jpg"
-  },
-  {
-    "id": "u8t5p326zkn2oa22x",
-    "title": "First Trial",
-    "channel": "Filler Name",
-    "image": "https://picsum.photos/500/300?random=1"
-  },
-  {
-    "id": "u8t5p391lkn2t38ar",
-    "title": "First Static Trial",
-    "channel": "Filler Name",
-    "image": "http://localhost:5050/preview.jpg"
   }
 ]

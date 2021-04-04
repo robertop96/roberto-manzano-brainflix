@@ -2,10 +2,8 @@ import './videoInfo.scss';
 import viewsIcon from '../../assets/Icons/Icon-views.svg';
 import likesIcon from '../../assets/Icons/Icon-likes.svg';
 import moment from 'moment';
-// import VideoDetails from "../../data/video-details.json"
 
 function VideoInfo({ currentVideo, handleLikes }) {
-  // const homeVideo = VideoDetails[0];
   return (
     <article className="video-info">
       <h1 className="video-info__title">{currentVideo.title}</h1>

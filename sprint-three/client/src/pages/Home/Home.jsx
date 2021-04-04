@@ -8,96 +8,71 @@ import NextVideo from '../../components/NextVideo/NextVideo';
 import Loading from '../../components/Loader/';
 import axios from 'axios';
 
-const defaultVideoURL = `/api/videos/1af0jruup5gu`;
-
 export default class Home extends Component {
   state = {
     currentVideo: null,
     videoList: null
   };
 
-  //METHOD TO MAKE AXIOS CALLS AND SET STATE.
-  axiosRequest(requestType, apiUrl, state) {
-    axios({
-      method: requestType,
-      url: apiUrl
-    })
-      .then((response) => {
-        this.setState({ [state]: response.data });
-      })
-      .catch((error) => {
-        console.log(error.message);
+  async axios(req, url, state) {
+    try {
+      let res = await axios({
+        method: req,
+        url: url
       });
-  }
-
-  componentDidMount() {
-    const selectedVideoID = this.props.match.params.id;
-    const videoUrl = `/api/videos/${selectedVideoID}`;
-
-    this.axiosRequest('get', '/api/videos', 'videoList');
-    if (!selectedVideoID) {
-      this.axiosRequest('get', defaultVideoURL, 'currentVideo');
-    } else {
-      this.axiosRequest('get', videoUrl, 'currentVideo');
+      this.setState({ [state]: res.data });
+    } catch (err) {
+      console.log(err.message);
     }
   }
 
-  componentDidUpdate(prevProps) {
-    const selectedVideoID = this.props.match.params.id;
-    const previousVideoID = prevProps.match.params.id;
-    const videoUrl = `/api/videos/${selectedVideoID}`;
+  async axiosPost(url, body, state) {
+    try {
+      let res = await axios.post(url, body);
+      this.setState({ [state]: res.data });
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
 
-    if (selectedVideoID !== previousVideoID && selectedVideoID) {
-      this.axiosRequest('get', videoUrl, 'currentVideo');
-    } else if (selectedVideoID !== previousVideoID && !selectedVideoID) {
-      this.axiosRequest('get', defaultVideoURL, 'currentVideo');
+  componentDidMount() {
+    const videoId = this.props.match.params.id || '1af0jruup5gu';
+    const url = `/api/videos/${videoId}`;
+    this.axios('get', '/api/videos', 'videoList');
+    this.axios('get', url, 'currentVideo');
+  }
+
+  componentDidUpdate(prevProps) {
+    const videoId = this.props.match.params.id || '1af0jruup5gu';
+    const url = `/api/videos/${videoId}`;
+    const prevUrl = prevProps.match.url;
+    const currentUrl = this.props.match.url;
+    if (currentUrl !== prevUrl) {
+      this.axios('get', url, 'currentVideo');
     }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const currentVidId = this.state.currentVideo.id;
-    const commentEndpoint = `/api/videos/${currentVidId}/comments`;
-    const currentVideo = `/api/videos/${currentVidId}`;
-
-    axios
-      .post(commentEndpoint, {
-        name: 'BrainStation Man',
-        comment: e.target.comment.value
-      })
-      .then(() => {
-        this.axiosRequest('get', currentVideo, 'currentVideo');
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    const commentEndpoint = `/api/videos/${this.state.currentVideo.id}/comments`;
+    const formData = new FormData(e.target);
+    const formDataObj = Object.fromEntries(formData);
+    this.axiosPost(commentEndpoint, formDataObj, 'currentVideo');
     e.target.reset();
   };
 
   handleDelete = (commentID) => {
-    const currentVidId = this.state.currentVideo.id;
-    const deleteEndpoint = `/api/videos/${currentVidId}/comments/${commentID}`;
-    const currentVideo = `/api/videos/${currentVidId}`;
-
+    const deleteEndpoint = `/api/videos/${this.state.currentVideo.id}/comments/${commentID}`;
     let confirm = window.confirm(
       'Are you sure you want to DELETE this message?'
     );
     if (confirm) {
-      axios
-        .delete(deleteEndpoint)
-        .then(() => {
-          this.axiosRequest('get', currentVideo, 'currentVideo');
-        })
-        .catch((error) => console.log(error.message));
+      this.axios('delete', deleteEndpoint, 'currentVideo');
     }
   };
   handleLikes = () => {
-    const currentVideoId = this.state.currentVideo.id;
-    const currentVideo = `/api/videos/${currentVideoId}`;
-    const putEndPoint = `/api/videos/${currentVideoId}/likes`;
-    axios.put(putEndPoint).then(() => {
-      this.axiosRequest('get', currentVideo, 'currentVideo');
-    });
+    const putEndPoint = `/api/videos/${this.state.currentVideo.id}/likes`;
+    this.axios('put', putEndPoint, 'currentVideo');
   };
 
   render() {

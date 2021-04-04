@@ -16,11 +16,11 @@ const deleteComment = (req, res) => {
         );
         requestedVideo.comments.map((comment, index) => {
           if (comment.id == commentId) {
-            res.send(comment);
             requestedVideo.comments.splice(index, 1);
           }
         });
         write.writeFile(VideoDetailsLocation, readVideoDetails);
+        res.send(requestedVideo);
       }
     });
     console.log('received at commentDeleting');
