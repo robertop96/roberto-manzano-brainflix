@@ -1,12 +1,18 @@
 import React from 'react';
 import './VideoUpload.scss';
-import Thumbnail from '../../../assets/Images/Upload-video-preview.jpg';
+import Thumbnail from '../../assets/Images/Upload-video-preview.jpg';
+import axios from 'axios';
 
 function VideoUpload(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    axios.post('/api/videos', Object.fromEntries(formData));
+    setTimeout(() => {
+      props.history.push('/');
+    }, 4000);
     alert('Your Video Has Been Submitted, Thank you!');
-    props.history.push('/');
   };
 
   // console.log(props);

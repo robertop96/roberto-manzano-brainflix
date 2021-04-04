@@ -2,8 +2,8 @@ import './App.scss';
 import './partials/_partials.scss';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/pages/Home/Home';
-import VideoUpload from './components/pages/VideoUpload/VideoUpload';
+import Home from './pages/Home/Home';
+import VideoUpload from './pages/VideoUpload/VideoUpload';
 
 function App() {
   return (

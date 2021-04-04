@@ -58,6 +58,19 @@
         font-size: 1.3rem;
       }
     }
+    &--button {
+      background-color: transparent;
+      border: none;
+      &:focus {
+        outline: 0;
+      }
+      &:hover {
+        transform: scale(1.4);
+      }
+      &:active {
+        transform: scale(1);
+      }
+    }
     &--likesIcon {
       margin-right: 0.5rem;
       @include desktop {

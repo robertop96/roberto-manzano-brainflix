@@ -4,7 +4,7 @@ import likesIcon from '../../assets/Icons/Icon-likes.svg';
 import moment from 'moment';
 // import VideoDetails from "../../data/video-details.json"
 
-function VideoInfo({ currentVideo }) {
+function VideoInfo({ currentVideo, handleLikes }) {
   // const homeVideo = VideoDetails[0];
   return (
     <article className="video-info">
@@ -28,11 +28,16 @@ function VideoInfo({ currentVideo }) {
           <p className="video-info__social-media--views">
             {currentVideo.views}
           </p>
-          <img
-            className="video-info__social-media--likesIcon"
-            src={likesIcon}
-            alt=""
-          />
+          <button
+            className="video-info__social-media--button"
+            onClick={() => handleLikes()}
+          >
+            <img
+              className="video-info__social-media--likesIcon"
+              src={likesIcon}
+              alt=""
+            />
+          </button>
           <p className="video-info__social-media--likes">
             {currentVideo.likes}
           </p>
