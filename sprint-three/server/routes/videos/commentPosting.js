@@ -1,8 +1,6 @@
 const fs = require('fs');
 const write = require('../../helpers/writeFile');
 const template = require('../../helpers/videoTemplates');
-
-// File Name and Location
 const VideoDetailsLocation = __dirname + '/../../data/videosDetails.json';
 
 const postComment = (req, res) => {

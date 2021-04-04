@@ -1,7 +1,6 @@
 const fs = require('fs');
 const VideoDetailsLocation = __dirname + '/../../data/videosDetails.json';
 
-//function, gets videoDetails
 const videoDetails = (req, res) => {
   try {
     fs.readFile(VideoDetailsLocation, (err, data) => {

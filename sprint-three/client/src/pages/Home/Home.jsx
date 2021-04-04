@@ -8,7 +8,7 @@ import NextVideo from '../../components/NextVideo/NextVideo';
 import Loading from '../../components/Loader/';
 import axios from 'axios';
 
-const defaultVideoURL = `/api/videos/1af0jruup5gu`;
+const defaultVideoURL = `/videos/1af0jruup5gu`;
 
 export default class Home extends Component {
   state = {
@@ -32,20 +32,21 @@ export default class Home extends Component {
 
   componentDidMount() {
     const selectedVideoID = this.props.match.params.id;
-    const videoUrl = `/api/videos/${selectedVideoID}`;
+    const videoUrl = `/videos/${selectedVideoID}`;
 
-    this.axiosRequest('get', '/api/videos', 'videoList');
+    this.axiosRequest('get', '/videos', 'videoList');
     if (!selectedVideoID) {
       this.axiosRequest('get', defaultVideoURL, 'currentVideo');
     } else {
       this.axiosRequest('get', videoUrl, 'currentVideo');
     }
+    console.log(defaultVideoURL);
   }
 
   componentDidUpdate(prevProps) {
     const selectedVideoID = this.props.match.params.id;
     const previousVideoID = prevProps.match.params.id;
-    const videoUrl = `/api/videos/${selectedVideoID}`;
+    const videoUrl = `/videos/${selectedVideoID}`;
 
     if (selectedVideoID !== previousVideoID && selectedVideoID) {
       this.axiosRequest('get', videoUrl, 'currentVideo');
@@ -57,8 +58,8 @@ export default class Home extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const currentVidId = this.state.currentVideo.id;
-    const commentEndpoint = `/api/videos/${currentVidId}/comments`;
-    const currentVideo = `/api/videos/${currentVidId}`;
+    const commentEndpoint = `/videos/${currentVidId}/comments`;
+    const currentVideo = `/videos/${currentVidId}`;
 
     axios
       .post(commentEndpoint, {
@@ -76,8 +77,8 @@ export default class Home extends Component {
 
   handleDelete = (commentID) => {
     const currentVidId = this.state.currentVideo.id;
-    const deleteEndpoint = `/api/videos/${currentVidId}/comments/${commentID}`;
-    const currentVideo = `/api/videos/${currentVidId}`;
+    const deleteEndpoint = `/videos/${currentVidId}/comments/${commentID}`;
+    const currentVideo = `/videos/${currentVidId}`;
 
     let confirm = window.confirm(
       'Are you sure you want to DELETE this message?'
@@ -93,8 +94,8 @@ export default class Home extends Component {
   };
   handleLikes = () => {
     const currentVideoId = this.state.currentVideo.id;
-    const currentVideo = `/api/videos/${currentVideoId}`;
-    const putEndPoint = `/api/videos/${currentVideoId}/likes`;
+    const currentVideo = `/videos/${currentVideoId}`;
+    const putEndPoint = `/videos/${currentVideoId}/likes`;
     axios.put(putEndPoint).then(() => {
       this.axiosRequest('get', currentVideo, 'currentVideo');
     });
