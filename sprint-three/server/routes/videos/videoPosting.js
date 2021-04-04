@@ -23,9 +23,9 @@ const videoPosting = (req, res) => {
         const retrievedDetails = JSON.parse(data);
         retrievedDetails.push(template.videoDetails(title, description));
         write.writeFile(VideoDetailsLocation, retrievedDetails);
+        res.send(template.videoList(title));
       }
     });
-    res.send(template.videoList(title));
     console.log(`received at videoPosting`);
   } catch (error) {
     console.log(error);
