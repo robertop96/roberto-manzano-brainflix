@@ -8,11 +8,10 @@ function VideoUpload(props) {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    axios.post('/videos', Object.fromEntries(formData));
+    axios.post('/api/videos', Object.fromEntries(formData));
     setTimeout(() => {
       props.history.push('/');
-    }, 4000);
-    alert('Your Video Has Been Submitted, Thank you!');
+    }, 2000);
   };
 
   // console.log(props);
