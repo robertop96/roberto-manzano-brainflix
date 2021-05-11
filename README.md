@@ -49,6 +49,6 @@ localhost:3000/
 
 *This project was for educational purpose only and all images used were royalty free*
 
-*All the design, mockups, assets, API, folder Structure layout were provided by BrainStation.*
+*All the design, mockups, assets, folder Structure layout were provided by BrainStation.*
 
 The actual code and logic of this project was all made by Roberto Manzano.
